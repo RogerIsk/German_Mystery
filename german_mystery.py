@@ -18,7 +18,8 @@ WHAT DO YOU DO?
 """
 intro_decisions = "(enter hallway/ call agent/ wait like a good german citizen)"
 
-
+#map - 1st floor (hallway, guards office, elevator) 
+#      2nd floor (hallway, agents office, elevator, bathroom, waiting room)
 
 ######## PROGRAM START #########
 printc(intro, "blue")
