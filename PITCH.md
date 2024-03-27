@@ -23,7 +23,7 @@ What will you do:
 1.  wait for the elevator
 2.  you will use the stairs
 
-XXX missing parts
+[wait for the elevator]
 
 [You took the stairs]
 As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!
@@ -53,4 +53,11 @@ You are now standing in a corridor where you can see a door to the left, right a
 You slowly open the door and hear a soft rustling sound, it sounds like someone is shuffling through papers. Between piles of paper is a very stressed and nervous employee of the Agentur für Arbeit. "Excuse me, please..." you say quietly into the office. The counselor looks at you in horror and under stress he shouts in your direction "All my colleagues are sick, I have to do all the paperwork for them - please go to office 204, above us" and slams the door from the inside.
 
 [Front]
-A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect
+A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect.
+
+[Terminal]
+
+
+[Good Ending]
+
+[Bad Ending]
