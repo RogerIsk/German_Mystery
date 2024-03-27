@@ -64,4 +64,3 @@ A big Potato comes out of the shadows and dragg you into the darkness. You died,
 [Bad Ending]
 You are in the manager's office. There you find a strange machine. It looks like a machine that turns people into potatoes... that's strange. But maybe that's why no one works at the Agentur für Arbeit and you've only seen one person in the whole building.
 Out of nowhere
-A katana pierces through you from behind - it's the final boss Potatoman. You've lost your right to benefits. The Robo... I mean the Potatoes won.
