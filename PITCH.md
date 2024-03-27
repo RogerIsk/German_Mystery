@@ -16,11 +16,7 @@ There are 3 options available to you:
 2. you take the stairs
 3. you are waiting in the hall until you met a member of staff
 
-<<<<<<< HEAD
 [you take the elevator]
-=======
-you take the elevator:
->>>>>>> 9bf2b2616e4801513d4250f720862d8f98da2139
 So you chose the path of lazy people. You gathered your courage and walked over to the elevator call button. You press the button with a shaky hand. The whole building trembled slightly, and through this noise you hear a voice saying: who are you, warrior?
 What will you do:
 
