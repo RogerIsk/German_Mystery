@@ -51,7 +51,7 @@ text_floor1_options = """1. Left
 3. Terminal"""
 floor1_option_1 = ['1','left','l']
 floor1_option_2 = ['2', 'front','f']
-flor1_option_3 = ['3','terminal','t']
+floor1_option_3 = ['3','terminal','t']
 text_floor1_left = """You slowly open the door and hear a soft rustling sound, it sounds like someone is shuffling through papers. Between piles of paper is a very stressed and nervous employee of the Agentur für Arbeit. "Excuse me, please..." you say quietly into the office. The counselor looks at you in horror and under stress he shouts in your direction "All my colleagues are sick, I have to do all the paperwork for them - please go to office 204, above us" and slams the door from the inside."""
 text_floor1_front = """A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect."""
 text_floor1_terminal =""" XXXX """ #--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -82,9 +82,9 @@ def start(text, text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -100,9 +100,9 @@ def take_elevator(text, text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -118,9 +118,9 @@ def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -139,9 +139,9 @@ def waiting_elevator(text, text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -158,9 +158,9 @@ def waiting_staff(text, text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -175,9 +175,9 @@ def main_hall(text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -194,9 +194,9 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -217,9 +217,9 @@ def office_204(text,text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -238,9 +238,9 @@ def name_def(text_options, option_1, option_2, option_3):
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision = '' or decision not in option:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc(text_option)
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
@@ -254,6 +254,6 @@ def name_def(text_options, option_1, option_2, option_3):
 
 #---------END OF FUNCTIONS-----------------------------------------------
 ask_name()
-start()
+start(text_start, text_start_options, start_option_1, start_option_2, start_option_3)
 
 
