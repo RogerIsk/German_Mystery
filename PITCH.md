@@ -1,0 +1,5 @@
+- German mystery
+- Jobcenter secretly turns long-term unemployed people into potatoes with a potato-turning machine
+- Make a map
+- Worker office locked: find a key
+- Find key to secret room with potato machine
