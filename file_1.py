@@ -1,250 +1,259 @@
 from stringcolor import cs
 import time
+#--------- TEXT -----------------------------------------------------
+text_start = """The Agentur für Arbeit asks you to submit the same document for the 10th time - so you go to the office in a rage to resolve the matter once and for all.
 
-#---------FUNCTIONS-----------------------------------------------------
+When you arrive at the office, you find yourself standing in an empty hall with not a soul around and wonder where your point of contact might be. You think about where you are most likely to find someone who can help you with your matter.
+There are 3 options available to you:"""
+text_start_options = """1. You take the elevator
+2. You take the stairs
+3. You are waiting in the hall until you met a member of staff"""
+start_option_1 = ['1','you take the elevator','take elevator','elevator']
+start_option_2 = ['2','You take the stairs','take stairs','stairs']
+start_option_3 = ['3','You are waiting in the hall until you met a member of staff','wait','waiting']
+
+text_elevator = """So you chose the path of lazy people. You gathered your courage and walked over to the elevator call button. You press the button with a shaky hand. The whole building trembled slightly, and through this noise you hear a voice saying: who are you, warrior?
+What will you do:"""
+text_elevator_options = """1.  wait for the elevator
+2.  you will use the stairs"""
+elevator_option_1 = ['1','wait for the elevator','wait','elevator']
+elevator_option_2 = ['2','you will use the stairs','use stairs','stairs']
+elevator_option_3 = []
+
+#--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+text_waiting_elevator = """[wait for the elevator]"""
+text_waiting_elevator_options = """XXX"""
+waiting_elevator_option_1 = ['1']
+waiting_elevator_option_2 = ['2']
+waiting_elevator_option_3 = ['3']
+
+text_stairs = """As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!
+Do you want to continue up the stairs?"""
+text_stairs_options = """1. Yes
+2. No"""
+stairs_option_1 = ['1','yes','y']
+stairs_option_2 = ['2','no','n']
+stairs_option_3 = []
+text_stairs_yes = """You continue up the stairs, as you get closer and closer to the shadow, you feel your heart beating faster and faster and the presence of this shadow makes you feel very uncomfortable, but in the blink of an eye the shadow disappears before you reach the top of the stairs.
+Confused and worried, you ask yourself "Was that just my imagination? What could possibly happen to me here?" """
+text_stairs_no = """You turn back into the Main Hall."""
+
+#--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+text_waiting_staff = """[waiting_staff]"""
+text_waiting_staff_options = """XXX"""
+waiting_staff_option_1 = ['1']
+waiting_staff_option_2 = ['2']
+waiting_staff_option_3 = ['3']
+
+text_floor1 = """You are now standing in a corridor where you can see a door to the left, right and in front of each one, which door do you go in?"""
+text_floor1_options = """1. Left
+2. Front
+3. Terminal"""
+floor1_option_1 = ['1','left','l']
+floor1_option_2 = ['2', 'front','f']
+floor1_option_3 = ['3','terminal','t']
+text_floor1_left = """You slowly open the door and hear a soft rustling sound, it sounds like someone is shuffling through papers. Between piles of paper is a very stressed and nervous employee of the Agentur für Arbeit. "Excuse me, please..." you say quietly into the office. The counselor looks at you in horror and under stress he shouts in your direction "All my colleagues are sick, I have to do all the paperwork for them - please go to office 204, above us" and slams the door from the inside."""
+text_floor1_front = """A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect."""
+text_floor1_terminal =""" XXXX """ #--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+text_office_204 = """[wait for office 204]"""
+text_office_204_options = """XXX"""
+office_204_option_1 = ['1']
+office_204_option_2 = ['2']
+office_204_option_3 = ['3']
+
+#--------- FUNCTIONS -----------------------------------------------------
 
 # printing with color easily
 def printc(string, color="white"):
     # string first, then color optional - default white
     print(cs(string,color))
 
-def start():
-    print("""The Agentur für Arbeit asks you to submit the same document for the 10th time - so you go to the office in a rage to resolve the matter once and for all.
+def ask_name():
+    print("Welcome to the German mystery")
+    name = input("Choose your character's name: ")
+    printc("Hi "+name+", let's start.", "blue")
+    printc("------------------------", "yellow")
 
-When you arrive at the office, you find yourself standing in an empty hall with not a soul around and wonder where your point of contact might be. You think about where you are most likely to find someone who can help you with your matter.""")
-    print("""There are 3 options available to you:""")
-    option_1 = "You take the elevator"
-    option_2 = "You take the stairs"
-    option_3 = "You are waiting in the hall until you met a member of staff"
-    #printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+def start(text, text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        #print('''  ''')
-        take_elevator()
-    elif decision in ["2",option_2]:
-        #print('')
-        take_stairs()
-    elif decision in ["3",option_3]:
-        #print('')
-        waiting_staff()
+    if decision in option_1 and decision != '':
+        take_elevator(text_elevator, text_elevator_options, elevator_option_1, elevator_option_2, elevator_option_3)
+    elif decision in option_2 and decision != '':
+        take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
+    elif decision in option_3 and decision != '':
+        waiting_staff(text_waiting_staff, text_waiting_staff_options, waiting_staff_option_1, waiting_staff_option_2, waiting_staff_option_3)
 
-def take_elevator():
-    print("""So you chose the path of lazy people. You gathered your courage and walked over to the elevator call button. You press the button with a shaky hand. The whole building trembled slightly, and through this noise you hear a voice saying: who are you, warrior?""")
-    print("""What will you do:""")
-    option_1 = "Wait for the elevator"
-    option_2 = "You will use the stairs"
-    #option_3 = "..........option 3........."
-    # posible optointo type
-    option_1_p = "wait"
-    option_2_p = "stairs"
+def take_elevator(text, text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
     
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower(), option_1_p, option_2_p]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1], option_1_p:
-        print('''  ''')
-        waiting_elevator()
-    elif decision in ["2",option_2, option_2_p]:
-        print('')
-        take_stairs()
+    if decision in option_1 and decision != '':
+        waiting_elevator(text_waiting_elevator, text_waiting_elevator_options, waiting_elevator_option_1, waiting_elevator_option_2, waiting_elevator_option_3)
+    elif decision in option_2 and decision != '':
+        take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
+    elif decision in option_3 and decision != '':
+        pass
 
-############### DEF IS EMPTY #######################################################################################
-def waiting_elevator():
-    print("""  """)
-    print("""  """)
-    option_1 = "......option 1 ......"
-    option_2 = ".....option 2......."
-    #option_3 = "..........option 3........."
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes,text_stairs_no):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        print('''  ''')
-        return ""
-    elif decision in ["2",option_2]:
-        print('')
-        return ""
-    elif decision in ["3",option_3]:
-        print('')
-        return ""
+    if decision in option_1 and decision != '':
+        print(text_stairs_yes)
+        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal)
+    elif decision in option_2 and decision != '':
+        print(text_stairs_no)
+        main_hall(text_start_options, start_option_1, start_option_2, start_option_3)
+    elif decision in option_3 and decision != '':
+        pass
 
-def take_stairs():
-    print("""As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!""")
-    print("Do you want to continue up the stairs?")
-    option_1 = "Yes"
-    option_2 = "No"
-    #option_3 = "..........option 3........."
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
+################################################### DEF IS EMPTY #######################################################################################
+def waiting_elevator(text, text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower(), "y","n"]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1","yes","y"]:
-        print('''You continue up the stairs, as you get closer and closer to the shadow, you feel your heart beating faster and faster and the presence of this shadow makes you feel very uncomfortable, but in the blink of an eye the shadow disappears before you reach the top of the stairs.
-Confused and worried, you ask yourself "Was that just my imagination? What could possibly happen to me here?" ''')
-        1.floor()
-    elif decision in ["2","no","n"]:
-        print('You turn back into the Main Hall.')
-        main_hall()
+    if decision in option_1 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_2 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_3 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-############### DEF IS EMPTY #######################################################################################
-def waiting_staff():
-    print("""  """)
-    print("""  """)
-    option_1 = "......option 1 ......"
-    option_2 = ".....option 2......."
-    #option_3 = "..........option 3........."
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+################################################### DEF IS EMPTY #######################################################################################
+def waiting_staff(text, text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        print('''  ''')
-        return ""
-    elif decision in ["2",option_2]:
-        print('')
-        return ""
-    elif decision in ["3",option_3]:
-        print('')
-        return ""
+    if decision in option_1 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_2 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_3 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-############### DEF IS EMPTY #######################################################################################
-def main_hall():
-    print("""You are back in the main hall.""")
-    print("""There are 3 options available to you:""")
-    option_1 = "You take the elevator"
-    option_2 = "You take the stairs"
-    option_3 = "You are waiting in the hall until you met a member of staff"
-    #printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+def main_hall(text_options, option_1, option_2, option_3):
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        #print('''  ''')
-        take_elevator()
-    elif decision in ["2",option_2]:
-        #print('')
-        take_stairs()
-    elif decision in ["3",option_3]:
-        #print('')
-        waiting_staff()
-def 1.floor():
-    print("""You are now standing in a corridor where you can see a door to the left, right and in front of each one, which door do you go in?  """)
-    option_1 = "Left"
-    option_2 = "Front"
-    option_3 = "Terminal"
-    #printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+    if decision in option_1 and decision != '':
+        take_elevator(text_elevator, text_elevator_options, elevator_option_1, elevator_option_2, elevator_option_3)
+    elif decision in option_2 and decision != '':
+        take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
+    elif decision in option_3 and decision != '':
+        waiting_staff(text_waiting_staff, text_waiting_staff_options, waiting_staff_option_1, waiting_staff_option_2, waiting_staff_option_3)
+
+
+def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,text_floor1_front,text_floor1_terminal):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        #printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        print('''You slowly open the door and hear a soft rustling sound, it sounds like someone is shuffling through papers. Between piles of paper is a very stressed and nervous employee of the Agentur für Arbeit. "Excuse me, please..." you say quietly into the office. The counselor looks at you in horror and under stress he shouts in your direction "All my colleagues are sick, I have to do all the paperwork for them - please go to office 204, above us" and slams the door from the inside.  ''')
-        office_204()
-    elif decision in ["2",option_2]:
-        print('A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect.')
+    if decision in option_1 and decision != '':
+        print(text_floor1_left)
+        office_204(text_office_204, text_office_204_options, office_204_option_1, office_204_option_2, office_204_option_3)
+    elif decision in option_2 and decision != '':
+        print(text_floor1_front)
         # END *******************************************************************************************************************
-    elif decision in ["3",option_3]:
-        print('.............')
+    elif decision in option_3 and decision != '':
+        print(text_floor1_terminal)
         # call def
 
+
 ############### DEF IS EMPTY #######################################################################################
-def office_204():
-    print("""  """)
-    print("""  """)
-    option_1 = "......option 1 ......"
-    option_2 = ".....option 2......."
-    #option_3 = "..........option 3........."
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+def office_204(text,text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
+    
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        print('''  ''')
-        return ""
-    elif decision in ["2",option_2]:
-        print('')
-        return ""
-    elif decision in ["3",option_3]:
-        print('')
-        return ""
+    if decision in option_1 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_2 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    elif decision in option_3 and decision != '':
+        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+# function to use as a exemplo - should be delete after finish the code    
+def name_def(text_options, option_1, option_2, option_3):
+    print(text)
+    print(text_options)
     
-def name():
-    print("""  """)
-    print("""  """)
-    option_1 = "......option 1 ......"
-    option_2 = ".....option 2......."
-    #option_3 = "..........option 3........."
-    printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-    #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+    option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
-    while decision not in ["1", "2", "3", option_1.lower(), option_2.lower(), option_3.lower()]:
+    while decision == '' or decision not in option:
         printc("INVALID INPUT, please choose between:.","red")
-        printc("1- "+option_1+"/n"+"2- "+option_2, "cyan")
-        #printc("1- "+option_1+"/n"+"2- "+option_2+"/n"+"3- "+option_3, "cyan")
+        printc(text_options)
         decision = input("CHOOSE: ").lower()
     
-    if decision in ["1",option_1]:
-        print('''  ''')
-        return ""
-    elif decision in ["2",option_2]:
-        print('')
-        return ""
-    elif decision in ["3",option_3]:
-        print('')
-        return ""
+    if decision in option_1 and decision != '':
+        pass # change to function where you want to go
+    elif decision in option_2 and decision != '':
+        pass # change to function where you want to go
+    elif decision in option_3 and decision != '':
+        pass # change to function where you want to go
 
 
 
 #---------END OF FUNCTIONS-----------------------------------------------
-
-print("Welcome to the German mystery")
-name = input("Choose your character's name: ")
-printc("Hi "+name+", let's start.", "blue")
-printc("------------------------", "yellow")
-
-start()
+ask_name()
+start(text_start, text_start_options, start_option_1, start_option_2, start_option_3)
 
 
