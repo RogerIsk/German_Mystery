@@ -24,6 +24,7 @@ What will you do:
 2.  you will use the stairs
 
 [wait for the elevator]
+The elevator button yielded pleasantly and clicked. After a second, the elevator doors opened and you, breathing in as much air as you could, stepped into the unknown. a minute later you stepped out of the elevator and found yourself in the corridor.
 
 [You took the stairs]
 As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!
@@ -56,7 +57,14 @@ You slowly open the door and hear a soft rustling sound, it sounds like someone 
 A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect.
 
 [Terminal]
-
+When you get closer to the terminal, you realize that it is very similar to a human face. At the same time, a whisper can be heard from him: "Part of the agency, part of the crew."
+When you dial your Berator's phone number, you hear nothing but silence.
+This call awakened something in the terminal. And he spoke to you. "are you the same person who came to the job center without a Termine? You are a brave person and you have to live. Run away from here or you will be stuck here forever.
+Look for a job on your own or die in a bureaucratic black hole"
+What will you choose?
+1. Just get away from this sinister place
+2. Go into the left door
+3. Go into the Front door
 
 [Good Ending]
 
