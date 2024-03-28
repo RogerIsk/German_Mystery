@@ -77,8 +77,8 @@ def ask_name():
     printc("------------------------", "yellow")
 
 def start(text, text_options, option_1, option_2, option_3):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -95,8 +95,8 @@ def start(text, text_options, option_1, option_2, option_3):
         gameover_hall()
 
 def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_elevator):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -106,7 +106,7 @@ def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        print(text_waiting_elevator)
+        printc(text_waiting_elevator,"blue")
         go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204)
     elif decision in option_2 and decision != '':
         take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
@@ -114,8 +114,8 @@ def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_
         pass
 
 def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes,text_stairs_no):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -125,16 +125,16 @@ def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        print(text_stairs_yes)
+        printc(text_stairs_yes,"blue")
         go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204)
     elif decision in option_2 and decision != '':
-        print(text_stairs_no)
+        printc(text_stairs_no,"blue")
         main_hall(text_start_options, start_option_1, start_option_2, start_option_3)
     elif decision in option_3 and decision != '':
         pass
 
 def main_hall(text_options, option_1, option_2, option_3):
-    print(text_options)
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -151,8 +151,8 @@ def main_hall(text_options, option_1, option_2, option_3):
         gameover_hall()
 
 def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -162,11 +162,15 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        print(text_floor1_left)
+        printc(text_floor1_left,"blue")
         time.sleep(1)
-        print(text_office_204)
+        printc(text_office_204,"blue")
+        printc("\nGAME OVER", "red")
+        exit()
     elif decision in option_2 and decision != '':
-        print(text_floor1_front)
+        printc(text_floor1_frontb,"blue")
+        printc("\nGAME OVER", "red")
+        exit()
         # END *******************************************************************************************************************
     elif decision in option_3 and decision != '':
         #print(text_floor1_terminal)
@@ -174,8 +178,8 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
 
 # function to use as a exemplo - should be delete after finish the code    
 def terminal(text, text_options, option_1, option_2, option_3, text_good_ending):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -185,7 +189,9 @@ def terminal(text, text_options, option_1, option_2, option_3, text_good_ending)
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        print(text_good_ending)
+        printc(text_good_ending,"blue")
+        printc("\nGAME OVER - You survived", "green")
+        exit()
     elif decision in option_2 and decision != '':
         go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal, text_office_204)
     elif decision in option_3 and decision != '':
@@ -193,8 +199,6 @@ def terminal(text, text_options, option_1, option_2, option_3, text_good_ending)
 
 
 def gameover_hall():
-    print("\nYou turn back into the Main Hall.")
-    time.sleep(2)
     print("\n[you are waiting in the hall until you met a member of staff]")
     time.sleep(2)
     print("\n...")
@@ -207,7 +211,7 @@ def gameover_hall():
 
 
 #---------END OF FUNCTIONS-----------------------------------------------
-#ask_name()
+ask_name()
 start(text_start, text_start_options, start_option_1, start_option_2, start_option_3)
 
 
