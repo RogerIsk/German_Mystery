@@ -6,58 +6,108 @@ def printc(string, color="white"):
     # string first, then color optional - default white
     print(cs(string,color))
 
+intro = ''' The employment agency asks you to submit the same document for the 10th time - so you go to the office in a rage to resolve the matter once and for all.
 
-intro = """
-YOU ARE waiting for your JC-Agent inside a dark, cold, hopeless room of the Jobcenter HQ in Berlin.
+When you arrive at the office, you find yourself standing in an empty hall with not a soul around and wonder where your point of contact might be. You think about where you are most likely to find someone who can help you with your matter. '''
 
-As usual in sweat and fear waiting for the agent to come back with also usual bad news - you notice screams in the hallways.
-Is this the day? Are the people finally standing up against the horrible Jobcenter? 
-You dont know for sure - as the only thing you hear are screams - followed by deafening silence.
-
-WHAT DO YOU DO?
-"""
-intro_decisions = "(enter hallway/ call agent/ wait like a good german citizen)"
-
-#map - 1st floor (hallway, guards office, elevator) 
-#      2nd floor (hallway, agents office, elevator, bathroom, waiting room)
-
-######## PROGRAM START #########
-printc(intro, "blue")
-time.sleep(3)
-printc(intro_decisions, "cyan")
-time.sleep(0.5)
-decision = input("CHOOSE: ") 
-if decision.lower() == "enter hallway":
-    printc("You entered the hallway. but to your surprise - it seems life went on normally and people are just working and doing normal things.","green")
-    time.sleep(1)
-    printc("You asked a random person 'Yo what were those screams?? is everyone ok?' he answered unimpressed 'ah yes someone protested against how we do things, so we... took care of him.'","green")
+def main():
+    printc(intro, "blue")
     time.sleep(3)
-    printc("WHAT DO YOU DO?", "blue")
-    printc("go find your agent/ start a fight too","cyan")
-    decision = input("CHOOSE: ")
-    if decision.lower() == "go find your agent":
-        print()
-        #finding your agent and then stuff happens
-    elif decision.lower() == "start a fight too":
-        print()
-        # starting a fight in the jc
-    else:
-        printc("INVALID INPUT","red")
-elif decision.lower() == "call agent":
-    printc("You called your agent and waited for him to answer - but nothing.","green")
+    start()
+    
+def start():
+    print("\nWhat do you do?")
+    while True:
+        print("\n1. you take the elevator")
+        print("2. you take the stairs")
+        print("3. you are waiting in the hall until you met a member of staff")
+        choice = input("\nYour choice: ")
+        if choice == '1':
+            elevator()
+        elif choice == '2':
+            stairs()
+        elif choice == '3':
+            hall()
+        else:
+            print("Invalid choice. Please try again.")
+            time.sleep(0.5)
+
+# If you take the elevator
+def elevator():
+    print("\nSo you chose the path of lazy people. You gathered your courage and walked over to the elevator call button.")
+    print("You press the button with a shaky hand.")
+    print("The whole building trembled slightly, and through this noise you hear a voice saying:")
+    printc("Who are you, warrior?", "red")
+    time.sleep(0.5)
+    printc("\nWhat will you do:", "yellow")
+
+# If you take the stairs
+def stairs():
+    print("\nAs you move towards the stairs, you notice a dark shadow standing at the top of the stairs.")
+    print("You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!")
+    time.sleep(0.5)
+    print("\nDo you want to continue up the stairs?")
+    while True:
+        print("\n1. you take the elevator")
+        print("2. you take the stairs")
+        print("3. you are waiting in the hall until you met a member of staff")
+        choice = input("\nYour choice: ")
+        if choice == '1':
+            stairs_up()
+        elif choice == '2':
+            print("You turn back into the Main Hall.")
+            start()
+        else:
+            print("Invalid choice. Please try again.")
+            time.sleep(0.5)
+
+# If you bang on the door
+def hall():
+    print("\nYou bang loudly on the door. You hear some metallic clinking as a grumpy voice shouts from the other side:")
     time.sleep(1)
-    printc("After long waiting you stopped trying and accept you can't reach that guy...","green")
-    time.sleep(3)
-    printc("WHAT DO YOU DO?", "cyan")
-    # decisions (
-elif "wait" in decision.lower():
-    printc("After a long and polite waiting time - you feel how the injustice of this whole situation begins to corrupt you.","green")
+    printc("\n'What the fuck is going on? Shut the fuck up or I'll make you!'", "red")
+    time.sleep(0.5)
+    print("\nWhat do you do?")
+    while True:
+        print("\n1. Bang louder")
+        print("2. 'Oh, sorry! I won't do it again'")
+        print("3. 'Please, can you help me?? My precious golden ring rolled to a corner and I can't find it. :('")
+        choice = input("\nYour choice: ")
+        if choice == '1':
+            bang_door()
+        elif choice == '2':
+            start()
+        elif choice == '3':
+            lost_ring()
+        else:
+            print("Invalid choice. Please try again.")
+            time.sleep(0.5)
+
+# If you lure the guard into believing you have a golden ring to seize
+def lost_ring():
+    print("\nA short silence.")
     time.sleep(1)
-    printc("Every damn time youre here they let you wait, and wait, and wait for what? For like enough cash to not die in the street? MAybe? You've had enough.","orange")
-    time.sleep(1)
-    printc("Your soul fills with dark anger and violence - fueled by this you storm out of that damn room and search for the first person to unload your anger upon. Ready to say: 'This is unacceptable'","red")
-    time.sleep(3)
-    printc("WHAT DO YOU DO?", "cyan")
-    # decisions (
-else:
-    printc("INVALID INPUT.","red")
+    print("You hear a key rotating in the lock. The voice says:")
+    printc("\n'Alright, but no funny stuff! I'm armed and I'm a tough one!'", "red")
+    time.sleep(0.5)
+    print("\nWhat do you do?")
+    while True:
+        print("\n1. Nothing")
+        print("2. Hide behind the door")
+        print("2. Hide against the wall on the other side of the door")
+        choice = input("\nYour choice: ")
+
+        """
+        if choice == '1':
+            bang_door()
+        elif choice == '2':
+            start()
+        elif choice == '3':
+            lost_ring()
+        else:
+            print("Invalid choice. Please try again.")
+            time.sleep(0.5)
+            """
+
+if __name__ == "__main__":
+    main()
