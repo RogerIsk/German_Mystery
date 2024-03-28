@@ -77,8 +77,8 @@ def ask_name():
     printc("------------------------", "yellow")
 
 def start(text, text_options, option_1, option_2, option_3):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -95,8 +95,8 @@ def start(text, text_options, option_1, option_2, option_3):
         gameover_hall()
 
 def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_elevator):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -114,8 +114,8 @@ def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_
         pass
 
 def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes,text_stairs_no):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -134,7 +134,7 @@ def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes
         pass
 
 def main_hall(text_options, option_1, option_2, option_3):
-    print(text_options)
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -151,8 +151,8 @@ def main_hall(text_options, option_1, option_2, option_3):
         gameover_hall()
 
 def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
@@ -178,8 +178,8 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
 
 # function to use as a exemplo - should be delete after finish the code    
 def terminal(text, text_options, option_1, option_2, option_3, text_good_ending):
-    print(text)
-    print(text_options)
+    printc(text, "blue")
+    printc(text_options, "cyan")
     
     option = option_1+option_2+option_3
     decision = input("CHOOSE: ").lower()
