@@ -164,6 +164,9 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
     if decision in option_1 and decision != '':
         printc(text_floor1_left,"blue")
         time.sleep(1)
+        print("....")
+        print("....")
+        time.sleep(1)
         printc(text_office_204,"blue")
         printc("\nGAME OVER", "red")
         exit()
