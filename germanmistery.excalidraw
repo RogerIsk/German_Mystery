@@ -79772,8 +79772,8 @@
     },
     {
       "type": "rectangle",
-      "version": 105,
-      "versionNonce": 804779431,
+      "version": 141,
+      "versionNonce": 509491657,
       "isDeleted": false,
       "id": "x4gb3sEXjmmaJ0u55Gsnz",
       "fillStyle": "solid",
@@ -79795,14 +79795,14 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1711618995980,
+      "updated": 1711622274215,
       "link": null,
       "locked": false
     },
     {
       "type": "rectangle",
-      "version": 123,
-      "versionNonce": 1676205129,
+      "version": 159,
+      "versionNonce": 689038151,
       "isDeleted": false,
       "id": "yF6KRbuCs20I5Oz2hDCnB",
       "fillStyle": "solid",
@@ -79824,7 +79824,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1711618995980,
+      "updated": 1711622274215,
       "link": null,
       "locked": false
     },
