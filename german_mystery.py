@@ -171,7 +171,7 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
         printc("\nGAME OVER", "red")
         exit()
     elif decision in option_2 and decision != '':
-        printc(text_floor1_frontb,"blue")
+        printc(text_floor1_front,"blue")
         printc("\nGAME OVER", "red")
         exit()
         # END *******************************************************************************************************************
