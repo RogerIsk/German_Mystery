@@ -24,9 +24,7 @@ What will you do:
 2.  you will use the stairs
 
 [wait for the elevator]
-
-
-
+The elevator call button easily and gently yielded to the pressure of your finger. The elevator doors opened and your feet automatically took you there. A very strange feeling. Softly and easily, the elevator took you to another floor. The door opened and you found yourself in the corridor
 
 [You took the stairs]
 As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!
@@ -59,9 +57,18 @@ You slowly open the door and hear a soft rustling sound, it sounds like someone 
 A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect.
 
 [Terminal]
+when you get closer to the terminal, you realize that it is very similar to a human face. At the same time, a whisper can be heard from him: "Part of the agency, part of the crew."
+When you dial your Berator's phone number, you hear nothing but silence. What will you choose?
+When you dial your Berator's phone number, you hear nothing but silence.
+This call awakened something in the terminal. And he spoke to you. "are you the same person who came to the job center without a termine? You are a brave person and you have to live. Run away from here or you will be stuck here forever.
+Look for a job on your own or die in a bureaucratic black hole"
+What will you choose?
+1. Just get away from this sinister place
+2. Choose the path of the warrior and go into the corridor.
 
 [Good Ending]
-
+If you chose Just get away from this sinister place:
+You turned around and headed for the exit. All the way to the exit you were accompanied by whispers that whispered the words "stay, you'll like it... stay with us, it's nice." You, like a real hero of legends, resolutely opened the door to the exit of the building, and felt a sense of relief. Your chest was filled with fresh, not musty air. You survived.
 
 [Bad Ending]
 You are in the manager's office. There you find a strange machine. It looks like a machine that turns people into potatoes... that's strange. But maybe that's why no one works at the Agentur für Arbeit and you've only seen one person in the whole building.
