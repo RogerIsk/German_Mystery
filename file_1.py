@@ -32,13 +32,6 @@ text_stairs_yes = """You continue up the stairs, as you get closer and closer to
 Confused and worried, you ask yourself "Was that just my imagination? What could possibly happen to me here?" """
 text_stairs_no = """You turn back into the Main Hall."""
 
-#--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#text_waiting_staff = """[waiting_staff]"""
-#text_waiting_staff_options = """XXX"""
-#waiting_staff_option_1 = ['1']
-#waiting_staff_option_2 = ['2']
-#waiting_staff_option_3 = ['3']
-
 text_floor1 = """You are now standing in a corridor where you can see a door to the left, right and in front of each one, which door do you go in?"""
 text_floor1_options = """1. Left
 2. Front
@@ -49,15 +42,26 @@ floor1_option_3 = ['3','terminal','t']
 text_floor1_left = """You slowly open the door and hear a soft rustling sound, it sounds like someone is shuffling through papers. Between piles of paper is a very stressed and nervous employee of the Agentur für Arbeit. "Excuse me, please..." you say quietly into the office. The counselor looks at you in horror and under stress he shouts in your direction "All my colleagues are sick, I have to do all the paperwork for them - please go to office 204, above us" and slams the door from the inside."""
 text_floor1_front = """A big Potato comes out of the shadows and dragg you into the darkness. You died, what did you expect."""
 text_floor1_terminal =""" XXXX """ #--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-#--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 text_office_204 = """You are in the manager's office. There you find a strange machine. It looks like a machine that turns people into potatoes... that's strange. But maybe that's why no one works at the Agentur für Arbeit and you've only seen one person in the whole building.
 Out of nowhere
 A katana pierces through you from behind - it's the final boss Potatoman. You've lost your right to benefits. The Robo... I mean the Potatoes won."""
-text_office_204_options = """XXX"""
-office_204_option_1 = ['1']
-office_204_option_2 = ['2']
-office_204_option_3 = ['3']
+
+text_terminal = """when you get closer to the terminal, you realize that it is very similar to a human face. At the same time, a whisper can be heard from him: "Part of the agency, part of the crew."
+When you dial your Berator's phone number, you hear nothing but silence. What will you choose?
+When you dial your Berator's phone number, you hear nothing but silence.
+This call awakened something in the terminal. And he spoke to you. "are you the same person who came to the job center without a termine? You are a brave person and you have to live. Run away from here or you will be stuck here forever.
+Look for a job on your own or die in a bureaucratic black hole"
+What will you choose?"""
+text_terminal_options = """1. Just get away from this sinister place
+2. Choose the path of the warrior and go into the corridor.
+"""
+terminal_option_1 = ['1','just get away from this sinister place','get away']
+terminal_option_2 = ['2','choose the path of the warrior and go into the corridor','corridor','go into the corridor']
+terminal_option_3 = []
+
+text_good_ending = """If you chose Just get away from this sinister place:
+You turned around and headed for the exit. All the way to the exit you were accompanied by whispers that whispered the words "stay, you'll like it... stay with us, it's nice." You, like a real hero of legends, resolutely opened the door to the exit of the building, and felt a sense of relief. Your chest was filled with fresh, not musty air. You survived."""
+
 
 #--------- FUNCTIONS -----------------------------------------------------
 
@@ -84,7 +88,7 @@ def start(text, text_options, option_1, option_2, option_3):
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        take_elevator(text_elevator, text_elevator_options, elevator_option_1, elevator_option_2, elevator_option_3)
+        take_elevator(text_elevator, text_elevator_options, elevator_option_1, elevator_option_2, elevator_option_3,text_waiting_elevator)
     elif decision in option_2 and decision != '':
         take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
     elif decision in option_3 and decision != '':
@@ -103,7 +107,7 @@ def take_elevator(text, text_options, option_1, option_2, option_3,text_waiting_
     
     if decision in option_1 and decision != '':
         print(text_waiting_elevator)
-        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal)
+        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204)
     elif decision in option_2 and decision != '':
         take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
     elif decision in option_3 and decision != '':
@@ -122,51 +126,12 @@ def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes
     
     if decision in option_1 and decision != '':
         print(text_stairs_yes)
-        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal)
+        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204)
     elif decision in option_2 and decision != '':
         print(text_stairs_no)
         main_hall(text_start_options, start_option_1, start_option_2, start_option_3)
     elif decision in option_3 and decision != '':
         pass
-
-################################################### DEF IS EMPTY #######################################################################################
-def waiting_elevator(text, text_options, option_1, option_2, option_3):
-    print(text)
-    go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal)
-    '''print(text_options)
-    
-    option = option_1+option_2+option_3
-    decision = input("CHOOSE: ").lower()
-    while decision == '' or decision not in option:
-        printc("INVALID INPUT, please choose between:.","red")
-        printc(text_options)
-        decision = input("CHOOSE: ").lower()
-    
-    if decision in option_1 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_2 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_3 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-'''
-################################################### DEF IS EMPTY #######################################################################################
-def waiting_staff(text, text_options, option_1, option_2, option_3):
-    print(text)
-    print(text_options)
-    
-    option = option_1+option_2+option_3
-    decision = input("CHOOSE: ").lower()
-    while decision == '' or decision not in option:
-        printc("INVALID INPUT, please choose between:.","red")
-        printc(text_options)
-        decision = input("CHOOSE: ").lower()
-    
-    if decision in option_1 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_2 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_3 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 def main_hall(text_options, option_1, option_2, option_3):
     print(text_options)
@@ -183,10 +148,9 @@ def main_hall(text_options, option_1, option_2, option_3):
     elif decision in option_2 and decision != '':
         take_stairs(text_stairs, text_stairs_options, stairs_option_1, stairs_option_2, stairs_option_3,text_stairs_yes,text_stairs_no)
     elif decision in option_3 and decision != '':
-        waiting_staff(text_waiting_staff, text_waiting_staff_options, waiting_staff_option_1, waiting_staff_option_2, waiting_staff_option_3)
+        gameover_hall()
 
-
-def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,text_floor1_front,text_floor1_terminal):
+def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,text_floor1_front,text_floor1_terminal,text_office_204):
     print(text)
     print(text_options)
     
@@ -200,38 +164,16 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
     if decision in option_1 and decision != '':
         print(text_floor1_left)
         time.sleep(1)
-        office_204(text_office_204, text_office_204_options, office_204_option_1, office_204_option_2, office_204_option_3)
+        print(text_office_204)
     elif decision in option_2 and decision != '':
         print(text_floor1_front)
         # END *******************************************************************************************************************
     elif decision in option_3 and decision != '':
-        print(text_floor1_terminal)
-        # call def
-
-
-############### DEF IS EMPTY #######################################################################################
-def office_204(text,text_options, option_1, option_2, option_3):
-    print(text)
-    '''print(text_options)
-    
-        option = option_1+option_2+option_3
-        decision = input("CHOOSE: ").lower()
-        while decision == '' or decision not in option:
-        printc("INVALID INPUT, please choose between:.","red")
-        printc(text_options)
-        decision = input("CHOOSE: ").lower()
-    
-    if decision in option_1 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_2 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    elif decision in option_3 and decision != '':
-        pass # waiting for a entry ----------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-'''
-
+        #print(text_floor1_terminal)
+        terminal(text_terminal, text_terminal_options, terminal_option_1, terminal_option_2, terminal_option_3, text_good_ending)
 
 # function to use as a exemplo - should be delete after finish the code    
-def name_def(text_options, option_1, option_2, option_3):
+def terminal(text, text_options, option_1, option_2, option_3, text_good_ending):
     print(text)
     print(text_options)
     
@@ -243,11 +185,11 @@ def name_def(text_options, option_1, option_2, option_3):
         decision = input("CHOOSE: ").lower()
     
     if decision in option_1 and decision != '':
-        pass # change to function where you want to go
+        print(text_good_ending)
     elif decision in option_2 and decision != '':
-        pass # change to function where you want to go
+        go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal, text_office_204)
     elif decision in option_3 and decision != '':
-        pass # change to function where you want to go
+        pass
 
 
 def gameover_hall():
@@ -265,7 +207,7 @@ def gameover_hall():
 
 
 #---------END OF FUNCTIONS-----------------------------------------------
-ask_name()
+#ask_name()
 start(text_start, text_start_options, start_option_1, start_option_2, start_option_3)
 
 
