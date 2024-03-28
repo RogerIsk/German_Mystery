@@ -165,8 +165,12 @@ def go_floor1(text, text_options, option_1, option_2, option_3,text_floor1_left,
         print(text_floor1_left)
         time.sleep(1)
         print(text_office_204)
+        printc("\nGAME OVER", "red")
+        exit()
     elif decision in option_2 and decision != '':
         print(text_floor1_front)
+        printc("\nGAME OVER", "red")
+        exit()
         # END *******************************************************************************************************************
     elif decision in option_3 and decision != '':
         #print(text_floor1_terminal)
@@ -186,6 +190,8 @@ def terminal(text, text_options, option_1, option_2, option_3, text_good_ending)
     
     if decision in option_1 and decision != '':
         print(text_good_ending)
+        printc("\nGAME OVER - You survived", "green")
+        exit()
     elif decision in option_2 and decision != '':
         go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal, text_office_204)
     elif decision in option_3 and decision != '':
