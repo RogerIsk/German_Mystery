@@ -124,8 +124,8 @@ def take_stairs(text, text_options, option_1, option_2, option_3,text_stairs_yes
         print(text_stairs_yes)
         go_floor1(text_floor1, text_floor1_options, floor1_option_1, floor1_option_2, floor1_option_3,text_floor1_left,text_floor1_front,text_floor1_terminal)
     elif decision in option_2 and decision != '':
-        print(text_stairs_no)
-        main_hall(text_start_options, start_option_1, start_option_2, start_option_3)
+        start(text_start, text_start_options, start_option_1, start_option_2, start_option_3)
+
     elif decision in option_3 and decision != '':
         pass
 
@@ -251,8 +251,6 @@ def name_def(text_options, option_1, option_2, option_3):
 
 
 def gameover_hall():
-    print("\nYou turn back into the Main Hall.")
-    time.sleep(2)
     print("\n[you are waiting in the hall until you met a member of staff]")
     time.sleep(2)
     print("\n...")
