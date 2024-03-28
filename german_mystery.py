@@ -199,8 +199,6 @@ def terminal(text, text_options, option_1, option_2, option_3, text_good_ending)
 
 
 def gameover_hall():
-    print("\nYou turn back into the Main Hall.")
-    time.sleep(2)
     print("\n[you are waiting in the hall until you met a member of staff]")
     time.sleep(2)
     print("\n...")
