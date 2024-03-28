@@ -50,15 +50,13 @@ def stairs():
     time.sleep(0.5)
     print("\nDo you want to continue up the stairs?")
     while True:
-        print("\n1. you take the elevator")
-        print("2. you take the stairs")
-        print("3. you are waiting in the hall until you met a member of staff")
+        print("\n1. Yes")
+        print("2. No")
         choice = input("\nYour choice: ")
         if choice == '1':
             stairs_up()
         elif choice == '2':
-            print("You turn back into the Main Hall.")
-            start()
+            gameover_hall()
         else:
             print("Invalid choice. Please try again.")
             time.sleep(0.5)
@@ -68,9 +66,14 @@ def gameover_hall():
     print("\nYou turn back into the Main Hall.")
     time.sleep(2)
     print("\n[you are waiting in the hall until you met a member of staff]")
-    time.sleep(5)
+    time.sleep(2)
+    print("\n...")
+    time.sleep(2)
     print("\nYou've been waiting unnecessarily for 3 hours for something to happen. The employment agency closes for the day.")
-    printc("GAME OVER", "red")
+    time.sleep(2)
+    printc("\nGAME OVER", "red")
+    input("\nPress ENTER to exit")
+    exit()
 
 if __name__ == "__main__":
     main()
