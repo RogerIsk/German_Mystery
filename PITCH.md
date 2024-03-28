@@ -7,7 +7,7 @@
 
 #PART1 HALL#
 
-The employment agency asks you to submit the same document for the 10th time - so you go to the office in a rage to resolve the matter once and for all.
+The Agentur für Arbeit asks you to submit the same document for the 10th time - so you go to the office in a rage to resolve the matter once and for all.
 
 When you arrive at the office, you find yourself standing in an empty hall with not a soul around and wonder where your point of contact might be. You think about where you are most likely to find someone who can help you with your matter.
 There are 3 options available to you:
@@ -24,6 +24,9 @@ What will you do:
 2.  you will use the stairs
 
 [wait for the elevator]
+
+
+
 
 [You took the stairs]
 As you move towards the stairs, you notice a dark shadow standing at the top of the stairs. You can't make out its exact outline, but you can feel it staring at you and it makes you feel uncomfortable!
